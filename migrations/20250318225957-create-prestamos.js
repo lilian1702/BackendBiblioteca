@@ -2,24 +2,30 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Usuarios', {
+    await queryInterface.createTable('Prestamos', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nombre: {
-        type: Sequelize.STRING(100),
+      usuario_id: {
+        type: Sequelize.INTEGER
+
+      },
+      libro_id: {
+        type: Sequelize.INTEGER
+      },
+      fecha_prestamo: {
+        type: Sequelize.DATE,
         allowNull: false
       },
-      correo: {
-        type: Sequelize.STRING(100),
-        allowNull: false,
-        unique: true
+      fecha_devolucion: {
+        type: Sequelize.DATE
       },
-      telefono: {
-        type: Sequelize.STRING(20)
+      estado: {
+        type: Sequelize.ENUM('prestado', 'devuelto'),
+        defaultValue: 'prestado'
       },
       createdAt: {
         allowNull: false,
@@ -32,6 +38,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Usuarios');
+    await queryInterface.dropTable('Prestamos');
   }
 };
