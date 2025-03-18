@@ -14,10 +14,21 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Libros.init({
-    titulo: DataTypes.STRING,
-    autor: DataTypes.STRING,
-    anio_publicacion: DataTypes.INTEGER,
-    stock: DataTypes.STRING
+    titulo: {
+      type: DataTypes.STRING(255),
+      allowNull: false
+    },
+    autor: {
+      type: DataTypes.STRING(100),
+      allowNull: false
+    },
+    anio_publicacion: {
+      type: DataTypes.INTEGER
+    },
+    stock: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Libros',
