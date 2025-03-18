@@ -1,7 +1,9 @@
-class Libros{
+import {Libros} from '../models'
+
+class LibrosServices{
     static async ListarLibro(){
         try{
-            return await Biblioteca.findAll();
+            return await Libros.findAll();
 
         }catch(error){
             console.log("error en listar libros")
@@ -10,7 +12,7 @@ class Libros{
     }
     static async CrearLibro(titulo, autor, anio_publicacion,stock){
         try{
-            return await Biblioteca.create({titulo, autor, anio_publicacion,stock});
+            return await Libros.create({titulo, autor, anio_publicacion,stock});
 
         }catch(error){
             console.log("error al crear libro")
@@ -18,8 +20,7 @@ class Libros{
     }
     static async EliminarLibro(id){
         try{
-            return await Biblioteca.destroy({
-                where: {id:id}});
+            return await Libros.destroy({where: {id}});
 
         }catch(error){
             console.log("error al eliminar libro")
@@ -28,8 +29,7 @@ class Libros{
     }
     static async ActualizarLibro(id, titulo, autor, anio_publicacion, stock){
         try{
-            return await Biblioteca.update({titulo, autor, anio_publicacion, stock},{
-                where: {id:id}});
+            return await Libros.update({titulo, autor, anio_publicacion, stock},{where: {id}});
 
         }catch(error){
             console.log("error al actualizar libro")
@@ -38,4 +38,4 @@ class Libros{
     }
 
 }
-module.exports = Libros;
+module.exports =LibrosServices;

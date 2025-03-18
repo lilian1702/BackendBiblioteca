@@ -1,7 +1,9 @@
-class Usuarios{
+import {Usuarios} from '../models'
+
+class UsuarioService{
     static async CrearUsuario(nombre, correo, telefono){
         try{
-            return await Biblioteca.create({nombre,correo,telefono});
+            return await Usuarios.create({nombre,correo,telefono});
 
         }catch(error){
             console.log("error al crear usuario")
@@ -11,7 +13,7 @@ class Usuarios{
 
     static async ListarUsuario(){
         try{
-            return await Biblioteca.findAll();
+            return await Usuarios.findAll();
 
         }catch(error){
             console.log("error en listar usuarios")
@@ -20,8 +22,7 @@ class Usuarios{
     }
     static async EliminarUsuario(id){
         try{
-            return await Biblioteca.destroy({
-                where: {id:id}});
+            return await Usuarios.destroy({where: {id}});
 
         }catch(error){
             console.log("error al eliminar usuario")
@@ -30,8 +31,7 @@ class Usuarios{
     }
     static async ActualizarUsuario(id, nombre, correo, telefono){
         try{
-            return await Biblioteca.update({nombre,correo,telefono},{
-                where: {id:id}});
+            return await Usuarios.update({nombre,correo,telefono},{where: {id}});
 
         }catch(error){
             console.log("error al actualizar usuario")
@@ -41,4 +41,4 @@ class Usuarios{
 
 
 }
-module.exports = Usuarios;
+module.exports = UsuarioService;
