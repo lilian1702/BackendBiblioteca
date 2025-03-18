@@ -10,8 +10,10 @@ app.use(express.json());
 //rutas
 const usuarioRouter = require('./router/usuarioRouter');
 const librosRouter = require('./router/librosRouter');
+const prestamoRouter = require('./router/prestamoRouter');
 app.use('/api',usuarioRouter);
 app.use('/api',librosRouter);
+app.use('/api',prestamoRouter);
 
 
 //servidor
