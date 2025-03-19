@@ -6,6 +6,13 @@ const dotenv = require('dotenv');
 dotenv.config();
 //json para los post
 app.use(express.json());
+//cors
+const cors = require('cors');
+app.use(cors({ 
+    origin:"*",
+    methods:["GET","POST","PUT","DELETE"],
+    allowedHeaders:["Content-Type","Authorization"]
+}));
 
 //rutas
 const usuarioRouter = require('./router/usuarioRouter');
