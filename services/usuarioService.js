@@ -38,7 +38,15 @@ class UsuarioService{
 
         }
     }
+    static async BuscarUsuario(id){
+        try{
+            return await Usuarios.findOne({where: {id}});
 
+        }catch(error){
+            console.log("error al buscar usuario")
+
+        }
+    }
 
 }
 module.exports = UsuarioService;

@@ -42,5 +42,15 @@ class LibrosController{
             
         }
     }
+    static async BuscarLibro(req,res){
+        try{
+            let {id} = req.params;
+            let BusLibro = await Libros.BuscarLibro(id);
+            res.json(BusLibro);
+        }catch(error){
+            res.json({error: "error en la peticion buscar libro"});
+            
+        }
+    }
 }
 module.exports = LibrosController;

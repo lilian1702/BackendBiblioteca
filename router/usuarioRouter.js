@@ -6,6 +6,7 @@ router.get('/Usuario', usuarioController.ListarUsuario);
 router.post('/Usuario', usuarioController.CrearUsuario);
 router.delete('/Usuario/:id', usuarioController.EliminarUsuario);
 router.put('/Usuario/:id', usuarioController.ActualizarUsuario);
+router.get('/Usuario/:id', usuarioController.BuscarUsuario);
 
 
 

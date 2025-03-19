@@ -36,6 +36,14 @@ class LibrosServices{
 
         }
     }
+    static async BuscarLibro(id){
+        try{
+            return await Libros.findByPk(id);
 
+        }catch(error){
+            console.log("error al buscar libro")
+
+        }
+    }
 }
 module.exports =LibrosServices;

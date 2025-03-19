@@ -42,5 +42,15 @@ class PrestamoController{
             
         }
     }
+    static async BuscarPrestamo(req,res){
+        try{
+            let {id} = req.params;
+            let Prestamo = await PrestamoServices.BuscarPrestamo(id);
+            res.json(Prestamo);
+        }catch(error){
+            res.json({error: "error en la peticion buscar prestamo"});
+            
+        }
+    }
 }
 module.exports = PrestamoController;

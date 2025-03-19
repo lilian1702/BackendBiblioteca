@@ -40,6 +40,18 @@ class PrestamoServices{
 
         }
     }
+    static async BuscarPrestamo(id) {
+        try {
+            return await Prestamos.findOne({
+                where: { id },
+                include:[{model:Usuarios, as:'usuario', attributes:['id']}
+                ,{model:Libros, as:'libro', attributes:['id']}],
+                attributes:['id','usuario_id','libro_id','fecha_prestamo','fecha_devolucion','estado']});
+        } catch (error) {
+            console.log("Error al buscar préstamo: " + error);
+        }
+    }
+    
 
 }
 module.exports = PrestamoServices;

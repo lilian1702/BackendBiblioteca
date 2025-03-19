@@ -42,6 +42,16 @@ class UsuarioController{
             
         }
     }
+    static async BuscarUsuario(req,res){
+        try{
+            let {id} = req.params;
+            let BusUsuario = await UsuarioService.BuscarUsuario(id);
+            res.json(BusUsuario);
+        }catch(error){
+            res.json({error:"error al buscar usuario"});            
+            
+        }
+    }
 }
 module.exports = UsuarioController;
     
