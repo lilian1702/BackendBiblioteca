@@ -10,11 +10,23 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       usuario_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references:{
+          model:'Usuarios',
+          key:'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT'
 
       },
       libro_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references:{
+          model:'Libros',
+          key:'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'RESTRICT'
       },
       fecha_prestamo: {
         type: Sequelize.DATE,

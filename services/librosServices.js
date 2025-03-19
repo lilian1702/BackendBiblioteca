@@ -1,4 +1,4 @@
-import {Libros} from '../models'
+const {Libros}=require('../models') 
 
 class LibrosServices{
     static async ListarLibro(){

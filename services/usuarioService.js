@@ -1,4 +1,4 @@
-import {Usuarios} from '../models'
+const {Usuarios}=require('../models')
 
 class UsuarioService{
     static async CrearUsuario(nombre, correo, telefono){

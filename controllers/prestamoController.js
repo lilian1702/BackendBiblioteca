@@ -1,9 +1,9 @@
-const Prestamos = require('../services/prestamoServices');
+const PrestamoServices = require('../services/prestamoServices');
 
 class PrestamoController{
     static async ListarPrestamos(req,res){
         try{
-            let ListPrestamos = await Prestamos.ListarPrestamos();
+            let ListPrestamos = await PrestamoServices.ListarPrestamos();
             res.json(ListPrestamos);
         }catch(error){
             res.json({error: "error en la peticion listar prestamos"});
@@ -12,9 +12,9 @@ class PrestamoController{
     }
     static async CrearPrestamo(req,res){
         try{
-            let {usuario_id, libro_id, fecha_prestamo, fecha_devolucion,estado} = req.body;
-            let CreaPrestamo = await Prestamos.CrearPrestamo(usuario_id,libro_id, fecha_prestamo,fecha_devolucion,estado);
-            res.json(CreaPrestamo);
+            let {usuario_id,libro_id,fecha_prestamo,fecha_devolucion,estado} = req.body;
+            let CreaPrestamo = await PrestamoServices.CrearPrestamo(usuario_id,libro_id,fecha_prestamo,fecha_devolucion,estado);
+            res.json(req.body);
         }catch(error){
             res.json({error: "error en la peticion crear prestamo"});
             
@@ -23,7 +23,7 @@ class PrestamoController{
     static async EliminarPrestamo(req,res){
         try{
             let {id} = req.params;
-            let ElimPrestamo = await Prestamos.EliminarPrestamo(id);
+            let ElimPrestamo = await PrestamoServices.EliminarPrestamo(id);
             res.json("el prestamo se ha eliminado");
         }catch(error){
             res.json({error: "error en la peticion eliminar prestamo"});
@@ -33,8 +33,8 @@ class PrestamoController{
     static async ActualizarPrestamo(req,res){
         try{
             let {id} = req.params;
-            let {usuario_id, libro_id, fecha_prestamo, fecha_devolucion,estado} = req.body;
-            let ActPrestamo = await Prestamos.ActualizarPrestamo(id, usuario_id, libro_id, fecha_prestamo, fecha_devolucion,estado);
+            let {usuario_id,libro_id,fecha_prestamo,fecha_devolucion,estado} = req.body;
+            let ActPrestamo = await PrestamoServices.ActualizarPrestamo(id,usuario_id,libro_id,fecha_prestamo,fecha_devolucion,estado);
             res.json(req.body);       
             
         }catch(error){

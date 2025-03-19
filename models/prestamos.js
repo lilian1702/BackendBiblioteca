@@ -10,7 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Prestamos.belongsTo(models.Usuarios,{foreignKey: 'usuario_id', as:'usuario'});
+      Prestamos.belongsTo(models.Libros,{foreignKey: 'libro_id', as:'libro'});
     }
   }
   Prestamos.init({
@@ -21,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     libro_id: {
       type: DataTypes.INTEGER
     },
-    ffecha_prestamo: {
+    fecha_prestamo: {
       type: DataTypes.DATE,
       allowNull: false
     },
