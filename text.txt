@@ -1,1 +1,5 @@
 tener cuidado con el orden de la migraciones, la que tiene relaciones va de última
+
+
+npx sequelize-cli db:migrate --env production comando para migrar a railway
+
